@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdgf7yvtxnald"]
+
+[ext_resource type="PackedScene" uid="uid://cbbspbalcg87m" path="res://Turret.tscn" id="1_6d76m"]
+[ext_resource type="PackedScene" uid="uid://chcw24scifopj" path="res://Player.tscn" id="2_gqxho"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Turret" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_6d76m")]
+position = Vector2(991, 171)
+player = NodePath("../Player")
+
+[node name="Turret2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("1_6d76m")]
+position = Vector2(740, 513)
+player = NodePath("../Player")
+
+[node name="Player" parent="." instance=ExtResource("2_gqxho")]
+position = Vector2(307, 235)
+speed = 400

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://k38a48y3ch7h"]
+
+[ext_resource type="Texture2D" uid="uid://vpedxefki074" path="res://icon.svg" id="1_syigd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qaoov"]
+
+[node name="Bullet" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 2
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_qaoov")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_syigd")

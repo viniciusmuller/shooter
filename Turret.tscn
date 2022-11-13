@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbbspbalcg87m"]
+
+[ext_resource type="Script" path="res://Turret.gd" id="1_aj3qw"]
+[ext_resource type="Texture2D" uid="uid://vpedxefki074" path="res://icon.svg" id="1_oj6bs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4jbs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vb7n"]
+size = Vector2(63, 10)
+
+[node name="Turret" type="StaticBody2D"]
+script = ExtResource("1_aj3qw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3.1, 3.1)
+shape = SubResource("RectangleShape2D_a4jbs")
+
+[node name="Body" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0.462745, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_oj6bs")
+
+[node name="Gun" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="Gun"]
+position = Vector2(33, 1)
+scale = Vector2(0.5, 0.0859375)
+texture = ExtResource("1_oj6bs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gun"]
+position = Vector2(34.5, 1)
+shape = SubResource("RectangleShape2D_3vb7n")
