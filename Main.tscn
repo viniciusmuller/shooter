@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdgf7yvtxnald"]
+[gd_scene load_steps=4 format=3 uid="uid://cdgf7yvtxnald"]
 
 [ext_resource type="PackedScene" uid="uid://cbbspbalcg87m" path="res://Turret.tscn" id="1_6d76m"]
 [ext_resource type="PackedScene" uid="uid://chcw24scifopj" path="res://Player.tscn" id="2_gqxho"]
+[ext_resource type="Script" path="res://UI.gd" id="3_8j6m1"]
 
 [node name="Main" type="Node2D"]
 
@@ -16,3 +17,14 @@ player = NodePath("../Player")
 [node name="Player" parent="." instance=ExtResource("2_gqxho")]
 position = Vector2(307, 235)
 speed = 400
+
+[node name="UI" type="Node" parent="."]
+script = ExtResource("3_8j6m1")
+
+[node name="PlayerHP" type="Label" parent="UI"]
+offset_right = 45.0
+offset_bottom = 26.0
+size_flags_horizontal = 4
+text = "10 HP"
+
+[connection signal="player_took_damage" from="Player" to="UI" method="_on_player_player_took_damage"]

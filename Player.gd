@@ -1,10 +1,13 @@
 extends CharacterBody2D
 
 @export var speed = 200
+@export var health = 100
 @export var bullet_speed = 400
 
+signal player_took_damage(player)
+
 var bullet = preload("res://Bullet.tscn")
-	
+
 func _draw():
 	draw_line(Vector2.ZERO, get_local_mouse_position(), Color.MAGENTA, 4.0)
 
@@ -39,8 +42,13 @@ func process_input():
 
 	velocity = velocity.normalized() * speed
 
+func take_damage(damage):
+	health -= damage
+	emit_signal("player_took_damage", self)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	emit_signal("player_took_damage", self)
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
