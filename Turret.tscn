@@ -30,3 +30,10 @@ texture = ExtResource("1_oj6bs")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Gun"]
 position = Vector2(34.5, 1)
 shape = SubResource("RectangleShape2D_3vb7n")
+
+[node name="Barrel" type="Node2D" parent="Gun"]
+position = Vector2(87, 0)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

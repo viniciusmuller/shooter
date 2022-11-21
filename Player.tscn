@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://vpedxefki074" path="res://icon.svg" id="1_1jd5a"]
 [ext_resource type="Script" path="res://Player.gd" id="1_2gv4q"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ivml"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tkjmw"]
 size = Vector2(64, 64)
 
 [node name="Player" type="CharacterBody2D"]
@@ -13,15 +13,15 @@ script = ExtResource("1_2gv4q")
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_1jd5a")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_5ivml")
-
 [node name="Gun" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Gun"]
 position = Vector2(26.75, 1)
 scale = Vector2(0.410156, 0.0625)
 texture = ExtResource("1_1jd5a")
+
+[node name="Barrel" type="Node2D" parent="Gun"]
+position = Vector2(62, 1)
 
 [node name="Label" type="Label" parent="."]
 offset_left = -32.0
@@ -30,3 +30,6 @@ offset_right = 31.0
 offset_bottom = 58.0
 text = "joao"
 horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tkjmw")
